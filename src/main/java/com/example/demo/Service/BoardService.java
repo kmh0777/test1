@@ -22,7 +22,7 @@ public class BoardService {
         test1Mapper.insertBoard(board);
 
         Detail detail = new Detail();
-        
+
         detail.setBoard_id(board.getPriKey());
         detail.setContent(board.getContent());
 
@@ -51,5 +51,11 @@ public class BoardService {
         detailMapper.updateDetail(detail);
 
         return board;
+    }
+
+    @Transactional
+    public void deleteBoard(Long id) {
+        detailMapper.deleteDetail(id);
+        test1Mapper.deleteBoard(id);
     }
 }

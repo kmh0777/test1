@@ -71,13 +71,18 @@ public class Test1Controller {
             return "board/form";
         }
 
-        System.out.println("prikey:"+board.getPriKey());
-
         if (board.getPriKey() == null) {
             boardService.addBoardDetail(board);
         } else {
             boardService.editBoardDetail(board);
         }
+
+        return "redirect:/board/list";
+    }
+
+    @GetMapping("/delete")
+    public String deleteId(@RequestParam("pri_key") Long pri_key) {
+        boardService.deleteBoard(pri_key);
 
         return "redirect:/board/list";
     }

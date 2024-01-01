@@ -13,7 +13,7 @@ public interface Test1Mapper {
     List<Board> selectBoard();
 
     @Insert("insert into tbl_board(title, writer) values(#{board.title}, #{board.writer})")
-    @Options(useGeneratedKeys = true, keyProperty = "pri_key")
+    @Options(useGeneratedKeys = true, keyProperty = "priKey")
     int insertBoard(@Param("board") Board board);
 
     @Select("select * from tbl_board where pri_key=#{pri_key}")
@@ -25,4 +25,7 @@ public interface Test1Mapper {
 
     @Update("update tbl_board set title=#{board.title}, writer=#{board.writer} where pri_key=#{board.priKey}")
     int updateBoard(@Param("board") Board board);
+
+    @Delete("delete from tbl_board where pri_key=#{pri_key}")
+    int deleteBoard(@Param("pri_key") Long pri_key);
 }

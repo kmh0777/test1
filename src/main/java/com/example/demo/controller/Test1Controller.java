@@ -5,7 +5,7 @@ import com.example.demo.mappers.DetailMapper;
 import com.example.demo.mappers.Test1Mapper;
 import com.example.demo.model.Board;
 import com.example.demo.model.Detail;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
